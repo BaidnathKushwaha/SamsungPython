@@ -1,0 +1,7 @@
+login:
+   mysql -u (username)   -p
+    mysql -u root -p
+
+show databases;
+create database name;
+select database();
