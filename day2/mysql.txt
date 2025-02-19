@@ -5,3 +5,40 @@ login:
 show databases;
 create database name;
 select database();
+use database_name
+show tables;
+describes table_name;
+insert into persons(name, age, gender) values('nithin', 40, 'm');
+               here more can be added each value should be sepearated by ','.
+select * from persons;
+ALTER TABLE persons ADD COLUMN salary DECIMAL(10, 2);
+ update persons set salary=25000.00 where name='rita';
+ select * from persons where salary<40000.00;
+ select * from persons where gender='m';
+ select name, salary from persons;
+select * from persons order by salary;
+
+
+
+data types in sql:
+number:
+sql           java
+tinyint       byte
+smallint      short
+int           int
+bigint        long
+
+varchar
+float
+default
+unique
+not null
+auto increment
+
+
+sql
+DDL 
+DML 
+TCL 
+DRL  
+DCL  
