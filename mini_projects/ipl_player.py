@@ -541,7 +541,7 @@ def create_traffic_dashboard(analyzer, optimizer):
         if rec['special_services'] == 'Yes':
             print(f"  • Special Express Services Recommended")
         print()
-    
+
     print("\n" + "="*80)
     print("                     REAL-TIME TRAFFIC ALERTS")
     print("="*80)
