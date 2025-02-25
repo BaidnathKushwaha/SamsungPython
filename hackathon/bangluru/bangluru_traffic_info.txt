@@ -1,0 +1,13 @@
+Problem Statement:
+
+Bengaluru faces severe traffic congestion, leading to increased travel time, pollution, and inefficiency in road usage. This project leverages data analytics to analyze traffic patterns and propose solutions using real-time data on pollution, parking, and road closures.
+
+Solution Approach:
+
+We will analyze historical traffic data from Bengaluru_traffic.csv and integrate it with supporting scripts to provide solutions:
+
+pollution_level.py → Correlates traffic density with pollution levels.
+parking_space_management.py → Optimizes parking space allocation to reduce roadside congestion.
+road_closures_and_diversions.py → Identifies road closures/diversions and suggests alternate routes.
+Bengaluru_traffic.csv (Main Dataset)→
+Contains traffic volume, speed, and congestion levels for different locations and timeframes. Used for analyzing peak congestion hours and traffic trends.
