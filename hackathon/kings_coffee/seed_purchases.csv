@@ -1,0 +1,5 @@
+date,supplier,quantity,cost
+2023-01-01,SupplierA,100,500
+2023-01-01,SupplierB,150,750
+2023-01-02,SupplierA,120,600
+2023-01-02,SupplierB,140,700

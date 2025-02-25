@@ -1,0 +1,1 @@
+it is a error which happens when we try to  use the variables that are not declared.

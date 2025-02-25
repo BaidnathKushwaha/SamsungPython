@@ -1,0 +1,4 @@
+Supplier,Seeds Purchased,Revenue,Coffee Type,Sales,Water Quantity,Customer Rating,Sweetener Type
+Supplier A,100,50000,Instant,200,100,4.5,Sugar
+Supplier B,200,60000,Filter,300,120,4.0,Jaggery
+Supplier C,150,70000,Instant,250,110,3.8,Sugar-Free

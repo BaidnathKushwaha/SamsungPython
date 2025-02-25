@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanti Sweets Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            margin-right: 10px;
+        }
+        button {
+            margin-top: 10px;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kanti Sweets Analysis</h1>
+
+    <h2>Top Selling Sweet in a Month</h2>
+    <form id="top-sweet-form">
+        <label for="month">Month:</label>
+        <input type="number" id="month" name="month" min="1" max="12" required>
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Month with Highest Revenue</h2>
+    <form id="top-revenue-form">
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Yearly Sales Comparison</h2>
+    <form id="yearly-sales-form">
+        <button type="submit">Get Yearly Sales</button>
+    </form>
+
+    <h2>Most Wasted Sweet</h2>
+    <form id="most-wasted-form">
+        <button type="submit">Get Most Wasted Sweet</button>
+    </form>
+
+    <h2>Results</h2>
+    <div id="results"></div>
+
+    <script>
+        document.getElementById('top-sweet-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const params = new URLSearchParams(formData).toString();
+            try {
+                const response = await fetch('/top_sweet?' + params);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                document.getElementById('results').innerHTML = `Top Selling Sweet: ${data.top_sweet} with ${data.top_sweet_sales} units sold.`;
+            } catch (error) {
+                document.getElementById('results').innerHTML = `Error: ${error.message}`;
+            }
+        });
+
+        document.getElementById('top-revenue-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const params = new URLSearchParams(formData).toString();
+            try {
+                const response = await fetch('/top_revenue_month?' + params);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                document.getElementById('results').innerHTML = `Month with Highest Revenue: ${data.top_month} with revenue of ${data.top_revenue.toFixed(2)}.`;
+            } catch (error) {
+                document.getElementById('results').innerHTML = `Error: ${error.message}`;
+            }
+        });
+
+        document.getElementById('yearly-sales-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            try {
+                const response = await fetch('/yearly_sales');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                let result = 'Yearly Sales Comparison:<br>';
+                for (const year in data) {
+                    result += `${year}: ${data[year]} units sold<br>`;
+                }
+                document.getElementById('results').innerHTML = result;
+            } catch (error) {
+                document.getElementById('results').innerHTML = `Error: ${error.message}`;
+            }
+        });
+
+        document.getElementById('most-wasted-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            try {
+                const response = await fetch('/most_wasted');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                document.getElementById('results').innerHTML = `Most Wasted Sweet: ${data.most_wasted} with ${data.wasted_quantity} units unsold.`;
+            } catch (error) {
+                document.getElementById('results').innerHTML = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

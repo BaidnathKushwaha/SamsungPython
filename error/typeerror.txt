@@ -1,0 +1,1 @@
+it happens when we try to do certain operation which is not possible by that type of variable

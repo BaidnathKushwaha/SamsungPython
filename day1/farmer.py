@@ -29,4 +29,3 @@ total_non_chemical_free_sales = total_potato_sales
 total_sales_realization = total_chemical_free_sales + total_non_chemical_free_sales
 print(f"Overall sales from 80 acres: Rs. {total_sales:,.2f}")
 print(f"Sales realization from chemical-free farming at the end of 11 months: Rs. {total_sales_realization:,.2f}")
-

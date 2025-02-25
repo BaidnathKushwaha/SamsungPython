@@ -1,7 +1,7 @@
-import db2
+import dbo
 class Person_service:
     def __init__(self):
-        self.oprs = db2.Db_operations()
+        self.oprs = dbo.Db_operations()
 
     def create_person(self):
         self.oprs.insert_row()
